@@ -19,6 +19,11 @@
     font-size: 14px;
   }
 
+  .active {
+    color: rgb(223, 223, 203);
+    text-decoration: underline;
+  }
+
   .header-left {
     @extend %flex-center;
     width: 50%;
