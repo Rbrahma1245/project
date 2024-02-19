@@ -21,7 +21,7 @@ class Signup extends Component {
             console.log(values);
           }}
         >
-          <Form className="form">
+          <Form className="signup-form">
             <div>
               <Field
                 type="text"
