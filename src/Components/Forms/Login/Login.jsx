@@ -1,4 +1,11 @@
-import { Button, TextField, ThemeProvider, createTheme } from "@mui/material";
+import {
+  Button,
+  TextField,
+  ThemeProvider,
+  Tooltip,
+  Typography,
+  createTheme,
+} from "@mui/material";
 import "./Login.scss";
 import { Component } from "react";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
@@ -18,7 +25,7 @@ class Login extends Component {
     this.setState({ [name]: value });
   }
   handleSubmit() {
-    this.setState({userName: "", password:""})
+    this.setState({ userName: "", password: "" });
     console.log(this.state);
   }
 
@@ -28,7 +35,7 @@ class Login extends Component {
   }
 
   render() {
-    let { theme } = this.state;
+    let { theme, userName, password } = this.state;
     return (
       <ThemeProvider theme={theme}>
         <div
@@ -36,39 +43,41 @@ class Login extends Component {
           style={{ backgroundColor: theme.palette.background.default }}
         >
           <div className="theme-btn">
-            <Button
-              variant="contained"
-              onClick={this.handleChangeTheme.bind(this)}
-            >
-              {theme === lightTheme ? <DarkModeIcon /> : <LightModeIcon />}
-            </Button>
+            <Tooltip title={theme === lightTheme ? "Dark Mode" : "Light Mode"}>
+              <Button onClick={this.handleChangeTheme.bind(this)}>
+                {theme === lightTheme ? <DarkModeIcon /> : <LightModeIcon />}
+              </Button>
+            </Tooltip>
           </div>
 
           <form className="form">
+            <Typography
+              variant="h6"
+              style={{ color: theme === lightTheme ? "" : "white" }}
+            >
+              LOGIN FORM
+            </Typography>
+
             <TextField
-              id="outlined-basic"
               label="Enter user Name"
               variant="outlined"
               name="userName"
+              value={userName}
               onChange={this.handleChange.bind(this)}
             />
-            <br />
-            <br />
+
             <TextField
-              id="outlined-basic"
               label="Enter your password"
               variant="outlined"
               name="password"
+              type="password"
+              value={password}
               onChange={this.handleChange.bind(this)}
             />
-            <br />
-            <br />
+
             <Button variant="contained" onClick={this.handleSubmit.bind(this)}>
               LOGIN
             </Button>
-
-            <br />
-            <br />
           </form>
         </div>
       </ThemeProvider>
