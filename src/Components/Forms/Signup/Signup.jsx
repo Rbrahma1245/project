@@ -2,6 +2,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { Component } from "react";
 import "./Signup.scss";
 import * as Yup from "yup";
+import { Typography } from "@mui/material";
 
 class Signup extends Component {
   render() {
@@ -14,6 +15,7 @@ class Signup extends Component {
     });
     return (
       <div style={{ height: "100vh" }} className="signup-container">
+        <Typography variant="h6">SIGNUP FORM</Typography>
         <Formik
           initialValues={{ userName: "", email: "", password: "" }}
           validationSchema={validationSchema}
@@ -51,7 +53,7 @@ class Signup extends Component {
               </span>
             </div>
 
-            <button type="submit">SUBMIT</button>
+            {/* <button type="submit">SUBMIT</button> */}
           </Form>
         </Formik>
       </div>
