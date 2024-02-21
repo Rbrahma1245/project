@@ -53,7 +53,7 @@ class Signup extends Component {
               </span>
             </div>
 
-            {/* <button type="submit">SUBMIT</button> */}
+            <button type="submit">SUBMIT</button>
           </Form>
         </Formik>
       </div>
